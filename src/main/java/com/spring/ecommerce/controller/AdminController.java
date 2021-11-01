@@ -88,7 +88,7 @@ public class AdminController {
             @RequestParam("productImage")MultipartFile file,
             @RequestParam("imgName") String imgName
             ) throws IOException{
-
+        //fetch data from database
         Product product = new Product();
         //to check or get product id
         product.setId(productDTO.getId());
@@ -113,5 +113,29 @@ public class AdminController {
         productService.addProduct(product);
 
         return "redirect:/admin/products";
+    }
+    @GetMapping("/admin/product/delete/{id}")
+    public String deleteProduct(@PathVariable Long id){
+        productService.removeProductId(id);
+        return "redirect:/admin/products";
+    }
+
+    @GetMapping("/admin/product/update/{id}")
+    public String updateProduct(@PathVariable long id, Model model){
+        //fetch data from database
+        Product product = productService.getProductById(id).get();
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setId(product.getId());
+        productDTO.setName(product.getName());
+        productDTO.setCategoryId(product.getCategory().getId());
+        productDTO.setPrice(product.getPrice());
+        productDTO.setWeight(product.getWeight());
+        productDTO.setDescription(product.getDescription());
+        productDTO.setImageName(product.getImageName());
+
+        model.addAttribute("categories", categoryService.getAllCategory());
+        model.addAttribute("productDTO", productDTO);
+
+        return "productsAdd";
     }
 }
