@@ -1,4 +1,4 @@
-package com.sheryians.major;
+package com.spring.ecommerce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
