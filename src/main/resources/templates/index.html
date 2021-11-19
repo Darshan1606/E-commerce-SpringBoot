@@ -54,9 +54,11 @@ background: linear-gradient(to right, #71B280, #134E5E); /* W3C, IE 10+/ Edge, F
                 <li class="nav-item active">
                     <a class="nav-link"   th:href="@{/register}" href="#"><i class="fas fa-user-plus"></i>   Sign Up</a>
                 </li>
-
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/login}" href="#"><i class="fas fa-sign-in-alt"></i>   Login</a>
+                    <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}" href="#">Login</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">Logout</a>
                 </li>
 
             </ul>
