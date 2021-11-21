@@ -18,7 +18,11 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+<nav class="navbar navbar-expand-lg navbar-dark " style="background: #134E5E;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+" >
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
             <h3 class="d-inline-block align-top" >E-Commerce Shop</h3>
@@ -31,10 +35,18 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/admin}" href="#">admin-home</a>
+                    <a class="nav-link" th:href="@{/}" href="#">Home</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/shop}" href="#">Products</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/admin}" href="#">Admin</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/logout}" href="#">logout</a>
+                    <a class="nav-link" th:href="@{/logout}" href="#">Logout</a>
                 </li>
 
             </ul>
@@ -67,6 +79,12 @@
         </tbody>
     </table>
 </div>
+<br> <br> <br>
+<!-- Copyright -->
+<div class="footer-copyright text-center py-3">© Copyright:
+    <a style="color: #134E5E;" th:href="@{/}"> E-Commerce Shop</a>
+</div>
+<!-- Copyright -->
 
 
 
